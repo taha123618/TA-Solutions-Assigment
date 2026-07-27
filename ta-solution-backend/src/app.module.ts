@@ -8,7 +8,7 @@ import { CurrencyModule } from './currency/currency.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: [`.env.${process.env.NODE_ENV}`, '.env'],
     }),
     CurrencyModule,
   ],

@@ -28,7 +28,7 @@ A full-stack, mobile-first Currency Converter web application built with a **Nes
 
 ---
 
-## 🚀 Quick Start (Single Command)
+## 🚀 Quick Start (Local)
 
 You can run both the NestJS Backend and React Frontend simultaneously using a single command from the project root:
 
@@ -48,42 +48,37 @@ npm start
 
 ---
 
-## 💻 Manual Setup & Execution
+## 🌐 Free Deployment Guide
 
-### 1. Backend (`ta-solution-backend`)
-```bash
-cd ta-solution-backend
+Follow these steps to deploy both the **Backend** and **Frontend** publicly for free:
 
-# Install dependencies
-npm install
+### 1. Deploy NestJS Backend (Render / Koyeb / Vercel)
 
-# Start development server
-npm run start:dev
-```
-
-### 2. Frontend (`ta-solution-frontend`)
-```bash
-cd ta-solution-frontend
-
-# Install dependencies
-npm install
-
-# Start Vite dev server
-npm run dev
-```
+#### Option A: Render (Free Web Service)
+1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New +** -> **Web Service**.
+2. Connect your GitHub repository.
+3. Configure settings:
+   - **Root Directory**: `ta-solution-backend`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm run start:prod`
+4. Add Environment Variable:
+   - `CURRENCY_API_KEY`: `fca_live_nGgtFvesKzCiD6InOfrRzwF3k6AiaGamjXnin55b`
+5. Click **Create Web Service**. Render will deploy your backend API at `https://your-backend-name.onrender.com`.
 
 ---
 
-## ⚙️ Environment Variables
+### 2. Deploy React Frontend (Netlify / Vercel)
 
-The backend configuration is managed via `ta-solution-backend/.env`:
-
-```env
-PORT=3000
-CURRENCY_API_KEY=
-```
-
-> **Note**: You can update `CURRENCY_API_KEY` in `ta-solution-backend/.env` anytime to use a new key from [freecurrencyapi.com](https://freecurrencyapi.com).
+#### Option A: Netlify (Free Web Hosting)
+1. Go to [Netlify App](https://app.netlify.com/) and click **Add new site** -> **Import an existing project**.
+2. Select your GitHub repository.
+3. Configure settings:
+   - **Base directory**: `ta-solution-frontend`
+   - **Build command**: `npm run build`
+   - **Publish directory**: `ta-solution-frontend/dist`
+4. Add Environment Variable (optional if connecting to live backend):
+   - `VITE_API_BASE_URL`: `https://your-backend-name.onrender.com`
+5. Click **Deploy Site**. Netlify will deploy your frontend live with automatic SSL!
 
 ---
 
@@ -113,32 +108,4 @@ npm run lint
 
 # Build production bundles
 npm run build
-```
-
----
-
-## 📂 Project Structure
-
-```
-TA-Solutions-Assignment/
-├── package.json                       # Monorepo runner (concurrently scripts)
-├── .gitignore                         # Root git ignore rules
-├── .mcp.json                          # MCP Server configuration
-├── README.md
-├── ta-solution-backend/               # NestJS API Gateway Application
-│   ├── src/
-│   │   ├── currency/                  # Currency service, controller & tests
-│   │   ├── app.module.ts              # Root module with ConfigModule
-│   │   └── main.ts                    # Bootstrap, CORS & Swagger setup
-│   ├── .env                           # Environment configuration
-│   └── .agents/skills/                # Backend agent skill documentation
-└── ta-solution-frontend/              # React 19 + Vite + Bootstrap Application
-    ├── src/
-    │   ├── api/                       # Axios API client functions
-    │   ├── components/                # React functional components (Converter, History, Common)
-    │   ├── hooks/                     # TanStack React Query hooks
-    │   ├── store/                     # Zustand stores with LocalStorage persistence
-    │   ├── types/                     # TypeScript type definitions
-    │   └── main.tsx                   # QueryClientProvider & React root
-    └── .agents/skills/                # Frontend agent skill documentation
 ```

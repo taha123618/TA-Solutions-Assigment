@@ -25,9 +25,12 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
+  const nodeEnv = process.env.NODE_ENV || 'development';
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
-  console.log(`🚀 NestJS Currency Backend running on http://localhost:${port}`);
+  console.log(
+    `🚀 NestJS Currency Backend running in [${nodeEnv.toUpperCase()}] mode on http://localhost:${port}`,
+  );
   console.log(
     `📚 Swagger Documentation available on http://localhost:${port}/api/docs`,
   );

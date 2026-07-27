@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ta-solution-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: CURRENCY_API_KEY
+        value: fca_live_nGgtFvesKzCiD6InOfrRzwF3k6AiaGamjXnin55b
