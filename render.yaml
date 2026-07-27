@@ -3,8 +3,8 @@ services:
     name: ta-solution-backend
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    buildCommand: cd ta-solution-backend && npm install && npm run build
+    startCommand: cd ta-solution-backend && npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
