@@ -1,0 +1,17 @@
+{
+  "name": "ta-solutions-assignment",
+  "version": "1.0.0",
+  "description": "Full-stack Currency Converter with NestJS backend & React+Bootstrap frontend",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n \"backend,frontend\" -c \"cyan,magenta\" \"npm --prefix ta-solution-backend run start:dev\" \"npm --prefix ta-solution-frontend run dev\"",
+    "start": "npm run dev",
+    "install:all": "npm install && npm --prefix ta-solution-backend install && npm --prefix ta-solution-frontend install",
+    "build": "npm --prefix ta-solution-backend run build && npm --prefix ta-solution-frontend run build",
+    "test": "npm --prefix ta-solution-backend test",
+    "lint": "npm --prefix ta-solution-backend run lint && npm --prefix ta-solution-frontend run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

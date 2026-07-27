@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "freecurrencyapi": {
+      "url": "https://api.freecurrencyapi.com/mcp",
+      "headers": {
+        "apikey": "${CURRENCY_API_KEY}"
+      }
+    }
+  }
+}
