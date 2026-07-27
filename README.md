@@ -80,7 +80,7 @@ The backend configuration is managed via `ta-solution-backend/.env`:
 
 ```env
 PORT=3000
-CURRENCY_API_KEY=fca_live_nGgtFvesKzCiD6InOfrRzwF3k6AiaGamjXnin55b
+CURRENCY_API_KEY=
 ```
 
 > **Note**: You can update `CURRENCY_API_KEY` in `ta-solution-backend/.env` anytime to use a new key from [freecurrencyapi.com](https://freecurrencyapi.com).
