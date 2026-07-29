@@ -8,6 +8,9 @@
     "start": "npm run dev",
     "install:all": "npm install && npm --prefix ta-solution-backend install && npm --prefix ta-solution-frontend install",
     "build": "npm --prefix ta-solution-backend run build && npm --prefix ta-solution-frontend run build",
+    "build:backend": "npm --prefix ta-solution-backend run build",
+    "start:backend": "npm --prefix ta-solution-backend run start:prod",
+    "build:frontend": "npm --prefix ta-solution-frontend run build",
     "test": "npm --prefix ta-solution-backend test",
     "lint": "npm --prefix ta-solution-backend run lint && npm --prefix ta-solution-frontend run lint"
   },
