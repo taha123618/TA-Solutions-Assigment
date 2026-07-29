@@ -48,37 +48,47 @@ npm start
 
 ---
 
-## 🌐 Free Deployment Guide
+## 🌐 Deployment Options (Backend & Frontend)
 
-Follow these steps to deploy both the **Backend** and **Frontend** publicly for free:
+### 1. Deploy NestJS Backend
 
-### 1. Deploy NestJS Backend (Render / Koyeb / Vercel)
-
-#### Option A: Render (Free Web Service)
-1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New +** -> **Web Service**.
-2. Connect your GitHub repository.
-3. Configure settings:
-   - **Root Directory**: `ta-solution-backend`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm run start:prod`
+#### Option A: Railway (Recommended Alternative)
+1. Go to [Railway.app](https://railway.app/) and click **New Project** -> **Deploy from GitHub repo**.
+2. Select your repository (`TA-Solutions-Assigment`).
+3. Railway automatically detects `railway.json` from the root directory!
 4. Add Environment Variable:
    - `CURRENCY_API_KEY`: `fca_live_nGgtFvesKzCiD6InOfrRzwF3k6AiaGamjXnin55b`
-5. Click **Create Web Service**. Render will deploy your backend API at `https://your-backend-name.onrender.com`.
+   - `PORT`: `3000`
+5. Click **Deploy**. Railway will generate your live domain (e.g. `https://ta-solution-backend.up.railway.app`).
+
+#### Option B: Render (Free Web Service)
+1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New +** -> **Blueprint**.
+2. Connect your GitHub repository (`TA-Solutions-Assigment`).
+3. Render automatically detects `render.yaml`!
+4. Click **Apply**. Render will deploy your backend API at `https://ta-solution-backend.onrender.com`.
+
+#### Option C: Koyeb (Free Web Service)
+1. Go to [Koyeb Dashboard](https://app.koyeb.com/) and create a **Web Service**.
+2. Connect your repository. Koyeb automatically reads `koyeb.yaml`!
+3. Add Environment Variable `CURRENCY_API_KEY` = `fca_live_nGgtFvesKzCiD6InOfrRzwF3k6AiaGamjXnin55b`.
+4. Click **Deploy**.
 
 ---
 
-### 2. Deploy React Frontend (Netlify / Vercel)
+### 2. Deploy React Frontend
 
 #### Option A: Netlify (Free Web Hosting)
 1. Go to [Netlify App](https://app.netlify.com/) and click **Add new site** -> **Import an existing project**.
-2. Select your GitHub repository.
-3. Configure settings:
-   - **Base directory**: `ta-solution-frontend`
-   - **Build command**: `npm run build`
-   - **Publish directory**: `ta-solution-frontend/dist`
-4. Add Environment Variable (optional if connecting to live backend):
-   - `VITE_API_BASE_URL`: `https://your-backend-name.onrender.com`
-5. Click **Deploy Site**. Netlify will deploy your frontend live with automatic SSL!
+2. Select your GitHub repository (`TA-Solutions-Assigment`). Netlify automatically reads `netlify.toml`!
+3. Add Environment Variable:
+   - `VITE_API_BASE_URL`: *(Your deployed live backend URL from Railway, Render, or Koyeb)*
+4. Click **Deploy Site**.
+
+#### Option B: Vercel (Free Web Hosting)
+1. Go to [Vercel Dashboard](https://vercel.com/new) and import your GitHub repository.
+2. Set **Root Directory** to `ta-solution-frontend`.
+3. Set Environment Variable `VITE_API_BASE_URL` to your backend URL.
+4. Click **Deploy**.
 
 ---
 
